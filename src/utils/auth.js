@@ -39,11 +39,11 @@ export function register({ email, password, name }) {
     });
 }
 
-// export function logout() {
-//   const formData = new URLSearchParams();
-//   return axios.post(`${baseURL}/auth/register`, formData)
-//     .then(({ data }) => {
-//       localStorage.setItem(TOKEN_STORAGE_KEY, data.token);
-//       return data;
-//     });
-// }
+export function logout() {
+  const formData = new URLSearchParams();
+  return axios.post(`${baseURL}/logout`, formData)
+    .then(({ data }) => {
+      localStorage.removeItem(TOKEN_STORAGE_KEY, data.token);
+      return data;
+    });
+}

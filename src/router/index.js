@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '@/views/Home.vue';
-import { isAuthenticated } from '@/utils/auth';
+// eslint-disable-next-line import/extensions
+import Home from '../views/Home';
+import { isAuthenticated } from '../utils/auth';
 
 Vue.use(VueRouter);
 
@@ -18,7 +19,7 @@ const routes = [
   },
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
   },
 ];
