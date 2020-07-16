@@ -18,6 +18,21 @@ const routes = [
     component: () => import(/* webpackChunkName: "auth" */ '@/views/Register.vue'),
   },
   {
+    path: '/myinfo',
+    name: 'myinfo',
+    component: () => import(/* webpackChunkName: "auth" */ '@/views/UserInfo.vue'),
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: () => import(/* webpackChunkName: "auth" */ '@/views/Users.vue'),
+  },
+  {
+    path: '/getuser/:userid',
+    name: 'getuser',
+    component: () => import(/* webpackChunkName: "auth" */ '@/views/GetOtherUser.vue'),
+  },
+  {
     path: '/',
     name: 'home',
     component: Home,
@@ -39,7 +54,6 @@ router.beforeEach((to, from, next) => {
   if (!isAuthenticated() && !anonymousRoutes.includes(to.name)) {
     return next({ name: 'login' });
   }
-
   return next();
 });
 

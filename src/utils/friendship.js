@@ -3,14 +3,6 @@
 /* eslint-disable import/no-unresolved */
 import api from './api';
 
-export function friends() {
-  api.get('/friendship').then((e) => console.log(e));
-}
-
-export function friendsRequest() {
-  api.get('/friendship/request').then((e) => console.log(e));
-}
-
 export function friendsAccept() {
   api.get('/friendship/request/:id/accept').then((e) => console.log(e));
 }
