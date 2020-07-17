@@ -7,6 +7,7 @@
             Username : <strong>{{ this.otheruser.username }}</strong>,
             Nom : <strong>{{ this.otheruser.name }}</strong>
             <button v-on:click="friendRequest" class="button">Demandez en ami</button>
+            <button v-on:click="cancelRequest" class="button">Annule ma demande d'ami</button>
             <button v-on:click="blockUser" class="button">Block User</button>
             <button v-on:click="unBlockUser" class="button">unBlockUser</button>
         </div>
@@ -41,6 +42,9 @@ export default {
     friendRequest() {
       api.post('friendship/request',
         { requestedId: this.otheruser.id }).then(() => alert('Demande d ami envoyé'));
+    },
+    cancelRequest() {
+      api.delete(`/request/${this.otheruser.id}`).then(() => alert('Demande d ami annule'));
     },
   },
 };

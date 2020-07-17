@@ -12,14 +12,13 @@
 
         <nav v-else class="header_right">
             <div><router-link to="/">Login</router-link></div>
-            <div><router-link to="/">Sign-in</router-link></div>
-            <div><router-link to="/">Contactez-nous</router-link></div>
+            <div><router-link to="/register">Sign-in</router-link></div>
         </nav>
     </header>
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: 'header',
@@ -35,14 +34,13 @@ export default {
   },
   methods: {
     logout() {
-      axios.get('http://212.47.241.143:5000/logout')
-        .then(() => {
-          localStorage.removeItem('access_token');
-          this.token = null;
-          console.log(localStorage.getItem('access_token'));
-        }).catch((error) => {
-          console.log(error.response);
-        });
+      // axios.get('http://212.47.241.143:5000/logout')
+      //   .then(() => {
+      localStorage.removeItem('access_token');
+      this.token = null;
+      // }).catch((error) => {
+      //   console.log(error.response);
+      // });
     },
   },
 

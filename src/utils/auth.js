@@ -20,6 +20,8 @@ export function login({ email, password }) {
   return axios.post(`${baseURL}/auth/login`, formData)
     .then(({ data }) => {
       localStorage.setItem(TOKEN_STORAGE_KEY, data.token);
+      // eslint-disable-next-line no-undef
+      store.commit('TOGGLE_LOGIN_STATUS');
       return data;
     });
 }
@@ -33,6 +35,8 @@ export function register({ email, password, name }) {
   return axios.post(`${baseURL}/auth/register`, formData)
     .then(({ data }) => {
       localStorage.setItem(TOKEN_STORAGE_KEY, data.token);
+      // eslint-disable-next-line no-undef
+      store.commit('TOGGLE_LOGIN_STATUS');
       return data;
     }).catch((error) => {
       console.log(error);
