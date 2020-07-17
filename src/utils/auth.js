@@ -21,7 +21,6 @@ export function login({ email, password }) {
     .then(({ data }) => {
       localStorage.setItem(TOKEN_STORAGE_KEY, data.token);
       // eslint-disable-next-line no-undef
-      store.commit('TOGGLE_LOGIN_STATUS');
       return data;
     });
 }
@@ -36,7 +35,6 @@ export function register({ email, password, name }) {
     .then(({ data }) => {
       localStorage.setItem(TOKEN_STORAGE_KEY, data.token);
       // eslint-disable-next-line no-undef
-      store.commit('TOGGLE_LOGIN_STATUS');
       return data;
     }).catch((error) => {
       console.log(error);

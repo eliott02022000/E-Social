@@ -22,22 +22,19 @@
 
 export default {
   name: 'header',
-  data() {
-    return {
-      token: null,
-    };
-  },
-  created() {
-    if (localStorage.getItem('access_token')) {
-      this.token = localStorage.getItem('access_token');
-    }
+  props: {
+    token: {
+      type: String,
+      default: null,
+    },
   },
   methods: {
     logout() {
       // axios.get('http://212.47.241.143:5000/logout')
       //   .then(() => {
       localStorage.removeItem('access_token');
-      this.token = null;
+      this.$emit('logout');
+      this.$router.push({ name: 'login' });
       // }).catch((error) => {
       //   console.log(error.response);
       // });

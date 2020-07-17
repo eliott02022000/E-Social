@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <Headervue/>
-    <router-view class="view"/>
+    <Headervue
+      :token="token"
+      @logout="logout"/>
+    <router-view
+      @login="login"
+      class="view"/>
   </div>
 </template>
 
@@ -12,6 +16,19 @@ export default {
   name: 'App',
   components: {
     Headervue,
+  },
+  data() {
+    return {
+      token: null,
+    };
+  },
+  methods: {
+    logout() {
+      this.token = null;
+    },
+    login(token) {
+      this.token = token;
+    },
   },
 };
 </script>

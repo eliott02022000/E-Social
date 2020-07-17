@@ -39,8 +39,9 @@ export default {
       const { email, password, name } = this;
       this.error = false;
       register({ email, password, name })
-        .then(() => {
+        .then(({ token }) => {
           this.$router.push({ name: 'login' });
+          this.$emit('login', token);
         })
         .catch(() => {
           this.error = true;
